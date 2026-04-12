@@ -7,19 +7,22 @@ body {
   margin-bottom: 20px;
 }
 
-.status-underweight { 
-    color: blue; 
-    font-weight: bold; 
+.status-underweight {
+  color: rgb(74, 74, 169) !important;
+  font-weight: bold;
 }
-.status-normal { 
-    color: green; 
-    font-weight: bold; 
+
+.status-normal {
+  color: green !important;
+  font-weight: bold;
 }
+
 .status-overweight {
-     color: orange; 
-     font-weight: bold; 
-    }
-.status-obese { 
-    color: red; 
-    font-weight: bold; 
+  color: orange !important;
+  font-weight: bold;
+}
+
+.status-obese {
+  color: red !important;
+  font-weight: bold;
 }
