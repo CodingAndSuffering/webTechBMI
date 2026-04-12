@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Progress</title>
+
+  <link rel="stylesheet" href="progress.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Progress</h2>
+
+  <input type="date" id="progressDate">
+  <input type="number" id="progressWeight" placeholder="Weight">
+  <button id="addProgressBtn">Add</button>
+
+  <table>
+    <tbody id="progressTable"></tbody>
+  </table>
+
+  <canvas id="chart"></canvas>
+</div>
+
+<script src="progress.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+body {
+  background: #f4f6f9;
+}
+
+.app-title {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.status-underweight { 
+    color: blue; 
+    font-weight: bold; 
+}
+.status-normal { 
+    color: green; 
+    font-weight: bold; 
+}
+.status-overweight {
+     color: orange; 
+     font-weight: bold; 
+    }
+.status-obese { 
+    color: red; 
+    font-weight: bold; 
+}
