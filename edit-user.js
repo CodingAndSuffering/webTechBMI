@@ -19,6 +19,20 @@ $(function () {
   $("#gender").val(user.gender || "");
   $("#activityLevel").val(user.activityLevel || "");
 
+  function calculateBMI() {
+    const height = Number($("#height").val());
+    const weight = Number($("#weight").val());
+    if (height > 0 && weight > 0) {
+      const bmi = (weight / ((height / 100) ** 2)).toFixed(1);
+      $("#bmiDisplay").text(`BMI: ${bmi}`);
+    } else {
+      $("#bmiDisplay").text("Enter height and weight to calculate BMI");
+    }
+  }
+
+  calculateBMI();
+  $("#height, #weight").on("input", calculateBMI);
+
   // Save changes
   $("#editForm").on("submit", function (e) {
     e.preventDefault();
