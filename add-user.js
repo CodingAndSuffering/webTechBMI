@@ -12,8 +12,7 @@ $(function () {
       height: +$("#inputHeight").val(),
       weight: +$("#inputWeight").val(),
       gender: $("#inputGender").val(),
-      activityLevel: $("#inputActivity").val(),
-      history: []
+      activityLevel: $("#inputActivity").val()
     };
 
     if (!user.name || !user.age || !user.height || !user.weight) {
