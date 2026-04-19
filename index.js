@@ -49,7 +49,6 @@ $(function () {
 
       $("#userTableBody").append(`
         <tr>
-          <!-- 👇 NEW IMAGE COLUMN -->
           <td>
             <img src="${u.image || 'https://via.placeholder.com/50'}"
                  width="50"
