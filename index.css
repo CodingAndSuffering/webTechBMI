@@ -1,13 +1,8 @@
 body {
-  background:
-    radial-gradient(circle at 20% 30%, #4f486cf7 40px, transparent 41px),
-    radial-gradient(circle at 80% 20%, #8d80c0f7 60px, transparent 61px),
-    radial-gradient(circle at 10% 80%, #6e57cdf7 50px, transparent 51px),
-    radial-gradient(circle at 70% 70%, #4a465bf7 70px, transparent 71px),
-    linear-gradient(135deg, #b9aacc);
-    
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 20px;
 }
 
 .app-title {
