@@ -11,9 +11,9 @@ $(function () {
     return;
   }
 
-  // Fill form
+  //fill form
   $("#name").val(user.name);
-  $("#age").val(user.age);
+  $("#age").val(user.age); 
   $("#height").val(user.height);
   $("#weight").val(user.weight);
   $("#gender").val(user.gender || "");
@@ -33,7 +33,7 @@ $(function () {
   calculateBMI();
   $("#height, #weight").on("input", calculateBMI);
 
-  // Save changes
+  //save changes
   $("#editForm").on("submit", function (e) {
     e.preventDefault();
 

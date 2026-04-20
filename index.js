@@ -49,12 +49,21 @@ $(function () {
 
       $("#userTableBody").append(`
         <tr>
+          <!-- 👇 NEW IMAGE COLUMN -->
+          <td>
+            <img src="${u.image || 'https://via.placeholder.com/50'}"
+                 width="50"
+                 height="50"
+                 style="border-radius:50%; object-fit:cover;">
+          </td>
+
           <td>${u.name}</td>
           <td>${u.age}</td>
           <td>${u.height}</td>
           <td>${u.weight}</td>
           <td>${b}</td>
           <td class="${statusClass(s)}">${s}</td>
+
           <td>
             ${!cal ? "-" : `
               <div>Maintain: ${cal.maintain}</div>
@@ -62,6 +71,7 @@ $(function () {
               <div>Gain: ${cal.gain}</div>
             `}
           </td>
+
           <td>
             <a href="edit-user.html?id=${u.id}" class="btn btn-warning btn-sm">Edit</a>
             <button class="btn btn-danger btn-sm deleteBtn" data-id="${u.id}">Delete</button>
