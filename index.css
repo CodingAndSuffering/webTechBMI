@@ -1,11 +1,11 @@
 body {
   background:
-    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.4) 40px, transparent 41px),
-    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3) 60px, transparent 61px),
-    radial-gradient(circle at 10% 80%, rgba(255,255,255,0.25) 50px, transparent 51px),
-    radial-gradient(circle at 70% 70%, rgba(255,255,255,0.35) 70px, transparent 71px),
-    linear-gradient(135deg, #74ebd5, #ACB6E5);
-
+    radial-gradient(circle at 20% 30%, #4f486cf7 40px, transparent 41px),
+    radial-gradient(circle at 80% 20%, #8d80c0f7 60px, transparent 61px),
+    radial-gradient(circle at 10% 80%, #6e57cdf7 50px, transparent 51px),
+    radial-gradient(circle at 70% 70%, #4a465bf7 70px, transparent 71px),
+    linear-gradient(135deg, #b9aacc);
+    
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
