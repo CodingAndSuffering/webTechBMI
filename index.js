@@ -72,7 +72,7 @@ $(function () {
           </td>
 
           <td>
-            <a href="edit-user.html?id=${u.id}" class="btn btn-warning btn-sm">Edit</a>
+            <a href="edit-user.html? id=${u.id}" class="btn btn-warning btn-sm">Edit</a>
             <button class="btn btn-danger btn-sm deleteBtn" data-id="${u.id}">Delete</button>
           </td>
         </tr>
