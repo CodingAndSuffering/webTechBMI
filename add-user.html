@@ -9,10 +9,27 @@
 </head>
 <body>
 
+<div id="serverWarning" style="display:none; padding:20px; background:#ffdddd; color:#900; text-align:center;">
+  This page appears to be opened directly from the file system. Start the server and open the app via <a id="serverLinkAdd" href="#">http://localhost:5000/add-user.html</a> to use the app.
+</div>
+
+<script>
+  if (window.location.protocol === 'file:') {
+    const link = document.getElementById('serverLinkAdd');
+    link.href = 'http://localhost:5000/add-user.html';
+    document.getElementById('serverWarning').style.display = 'block';
+  }
+</script>
+
 <div class="container mt-5">
   <h2>Add User</h2>
 
   <form id="addUserForm">
+    <div class="d-flex justify-content-between mb-3">
+      <a href="http://localhost:5000/index.html" class="btn btn-secondary">Back to list</a>
+      <button class="btn btn-success">Save</button>
+    </div>
+
     <input class="form-control mb-2" id="inputName" placeholder="Name">
     <input class="form-control mb-2" id="inputAge" type="number" placeholder="Age">
     <input class="form-control mb-2" id="inputHeight" type="number" placeholder="Height (cm)">
@@ -30,8 +47,6 @@
       <option value="moderate">Moderate</option>
       <option value="high">High</option>
     </select>
-
-    <button class="btn btn-success">Save</button>
   </form>
 </div>
 

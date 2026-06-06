@@ -9,6 +9,18 @@
 </head>
 <body>
 
+<div id="serverWarning" style="display:none; padding:20px; background:#ffdddd; color:#900; text-align:center;">
+  This page appears to be opened directly from the file system. Start the server and open the app via <a id="serverLinkEdit" href="#">http://localhost:5000/edit-user.html</a> to use the app.
+</div>
+
+<script>
+  if (window.location.protocol === 'file:') {
+    const link = document.getElementById('serverLinkEdit');
+    link.href = 'http://localhost:5000/edit-user.html';
+    document.getElementById('serverWarning').style.display = 'block';
+  }
+</script>
+
 <div class="container mt-4">
   <h2 class="mb-3">Edit User</h2>
 
