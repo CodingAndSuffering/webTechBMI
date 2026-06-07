@@ -12,6 +12,19 @@
 </head>
 <body>
 
+<!-- Warning shown when the page is opened via file:// instead of the running server -->
+<div id="serverWarning" style="display:none; padding:20px; background:#ffdddd; color:#900; text-align:center;">
+  This page appears to be opened directly from the file system. Start the server and open the app via <a id="serverLink" href="#">http://localhost:5000/index.html</a> to use the app.
+</div>
+
+<script>
+  if (window.location.protocol === 'file:') {
+    const link = document.getElementById('serverLink');
+    link.href = 'http://localhost:5000/index.html';
+    document.getElementById('serverWarning').style.display = 'block';
+  }
+</script>
+
 <div class="app-container container mt-4">
   <h1 class="app-title text-center">Health Tracker</h1>
 

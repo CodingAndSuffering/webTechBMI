@@ -1,62 +1,56 @@
-$(function () {
-  function getImageByBMI(weight, height) {
-    const bmi = weight / ((height / 100) ** 2);
+window.addEventListener('DOMContentLoaded', () => {
+  const addUserForm = document.getElementById('addUserForm');
+  const imageModal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+  const closeModal = document.getElementById('closeModal');
+  const backButton = document.getElementById('backButton');
 
-    if (bmi < 18.5)
-      return "https://static.wikia.nocookie.net/allthetropes/images/2/26/Yzma.jpg/revision/latest/scale-to-width-down/285?cb=20240929011323";
-
-    if (bmi < 25)
-      return "https://media.printler.com/media/photo/184635.jpg";
-
-    if (bmi < 30)
-      return "https://static.boredpanda.com/blog/wp-content/uploads/2024/11/Fat-cartoon-character-4-6736f2b7a5105__700.jpg";
-
-    return "https://static.wikia.nocookie.net/characters/images/8/8c/Diabeto.png/revision/latest/thumbnail/width/360/height/450?cb=20250916231158";
+  if (closeModal && imageModal) {
+    closeModal.addEventListener('click', () => {
+      imageModal.style.display = 'none';
+    });
   }
 
-  $("#addUserForm").submit(function (e) {
-    e.preventDefault();
+  if (backButton) {
+    backButton.addEventListener('click', () => {
+      const target = (window.location.origin && window.location.origin !== 'null') ? `${window.location.origin}/index.html` : '/index.html';
+      window.location.href = target;
+    });
+  }
 
-    let users = JSON.parse(localStorage.getItem("users")) || [];
+  if (addUserForm) {
+    addUserForm.addEventListener('submit', async event => {
+  event.preventDefault();
 
-    const weight = +$("#inputWeight").val();
-    const height = +$("#inputHeight").val();
+  const user = {
+    name: document.getElementById('inputName').value.trim(),
+    age: Number(document.getElementById('inputAge').value),
+    height: Number(document.getElementById('inputHeight').value),
+    weight: Number(document.getElementById('inputWeight').value),
+    gender: document.getElementById('inputGender').value,
+    activityLevel: document.getElementById('inputActivity').value
+  };
 
-    const user = {
-      id: Date.now(),
-      name: $("#inputName").val(),
-      age: +$("#inputAge").val(),
-      height: height,
-      weight: weight,
-      gender: $("#inputGender").val(),
-      activityLevel: $("#inputActivity").val(),
-
-      image: getImageByBMI(weight, height)
-    };
-
-    //validation
-    if (!user.name || !user.age || !user.height || !user.weight) {
-      alert("Fill all fields");
-      return;
-    }
-
-    users.push(user);
-    localStorage.setItem("users", JSON.stringify(users));
-
-    const img = getImageByBMI(weight, height);
-
-    $("#modalImage").attr("src", img);
-    $("#imageModal").css("display", "flex");
-
-    $("#closeModal").on("click", function () {
-      $("#imageModal").hide();
-      window.location.href = "index.html";
+  try {
+    const response = await fetch('/api/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(user)
     });
 
-    setTimeout(() => {
-      window.location.href = "index.html";
-    }, 10000);
+    if (!response.ok) {
+      const error = await response.text();
+      throw new Error(error || 'Unable to save user');
+    }
 
-  });
-
+    const savedUser = await response.json();
+    // Redirect back to the index page after saving — prefer absolute origin so served pages return to the API host.
+    const target = (window.location.origin && window.location.origin !== 'null') ? `${window.location.origin}/index.html` : '/index.html';
+    window.location.href = target;
+  } catch (error) {
+    console.error(error);
+    alert('Could not save user. Please check all fields and try again.');
+  }
+});
+  }
 });
